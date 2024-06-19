@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>License Checker</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  <h1>License Checker</h1>
+  <label for="licenseInput">Enter License:</label>
+  <input type="text" id="licenseInput">
+  <button onclick="checkLicense()">Check License</button>
+  <p id="result"></p>
+
+  <script>
+    function checkLicense() {
+      const license = document.getElementById('licenseInput').value;
+      const url = 'https://your-backend-url/check-license'; // Replace with your actual backend URL
+
+      axios.post(url, { license })
+        .then(response => {
+          document.getElementById('result').innerText = response.data.message;
+        })
+        .catch(error => {
+          console.error('Error checking license:', error);
+          document.getElementById('result').innerText = 'Error checking license. Please try again later.';
+        });
+    }
+  </script>
+</body>
+</html>
