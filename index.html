@@ -16,7 +16,7 @@
   <script>
     function checkLicense() {
       const license = document.getElementById('licenseInput').value;
-      const url = 'https://your-backend-url/check-license'; // Replace with your actual backend URL
+      const url = 'http://localhost:5000/check-license'; // Replace with your Flask server URL
 
       axios.post(url, { license })
         .then(response => {
